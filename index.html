@@ -36,13 +36,13 @@
         }
 
         function createCanvas() {
-            
+
             createPixels(getDimensions());
 
             const divs = document.querySelectorAll(".box");
 
             function onHover (event) {
-                event.target.style.backgroundColor = "purple";
+                event.target.style.backgroundColor = `rgb(${Math.random() * 256}, ${Math.random() * 256}, ${Math.random() * 256})`;
             }
 
             divs.forEach((div) => div.addEventListener("mouseenter", onHover))
