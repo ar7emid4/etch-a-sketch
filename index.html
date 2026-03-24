@@ -43,6 +43,8 @@
 
             function onHover (event) {
                 event.target.style.backgroundColor = `rgb(${Math.random() * 256}, ${Math.random() * 256}, ${Math.random() * 256})`;
+                event.target.style.opacity = `${+(event.target.style.opacity) + 0.1}`;
+                console.log(event.target.style.opacity);
             }
 
             divs.forEach((div) => div.addEventListener("mouseenter", onHover))
