@@ -28,9 +28,12 @@
 
         function createPixels (dimensions) {
             document.querySelector("#container").textContent = ""; //delete all previous divs            
+            let pixelSize = 700/dimensions;
             for (let i = 0; i < dimensions*dimensions; i++){
             let div = document.createElement("div");
             div.classList.add("box");
+            div.style.width = `${pixelSize}px`;
+            div.style.height = `${pixelSize}px`;
             container.appendChild(div)
             };
         }
@@ -52,9 +55,6 @@
         
         btn.addEventListener("click", createCanvas)
 
-        
-
-        
     </script>
 </body>
 </html>
