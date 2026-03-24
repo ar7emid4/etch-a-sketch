@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button>Create new canvas</button>
+    <div id="container"></div>
+
+    <script>
+        const container = document.querySelector("#container");
+        const btn = document.querySelector("button");
+        
+
+        function getDimensions () {
+            let dimensions = 0;
+
+            do {
+                dimensions = prompt("Enter dimensions of canvas");
+            } while (+dimensions > 100 || !Number.isInteger(+dimensions))
+            
+            console.log(dimensions);
+            return +dimensions;
+        }
+
+        function createPixels (dimensions) {
+            document.querySelector("#container").textContent = ""; //delete all previous divs            
+            for (let i = 0; i < dimensions*dimensions; i++){
+            let div = document.createElement("div");
+            div.classList.add("box");
+            container.appendChild(div)
+            };
+        }
+
+        function createCanvas() {
+            
+            createPixels(getDimensions());
+
+            const divs = document.querySelectorAll(".box");
+
+            function onHover (event) {
+                event.target.style.backgroundColor = "purple";
+            }
+
+            divs.forEach((div) => div.addEventListener("mouseenter", onHover))
+        };
+        
+        btn.addEventListener("click", createCanvas)
+
+        
+
+        
+    </script>
+</body>
+</html>
